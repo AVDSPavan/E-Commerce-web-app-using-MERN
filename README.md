@@ -22,5 +22,7 @@ Admin privilage is useful to create products, upload product pictures, Set price
 Password encryption is done using JSON Web Token, crypto and uuid to generate a secure code that will be stored in the MongoDb database and while sign in, the saved encrypted code will be decrypted on the go in the Nodejs backend server and match both user entered and present decrypted passwords for Authentication.
 
 Used PrivateRoutes to restrict access for unauthorised.
+
 Included Add to Cart and Remove from cart functionalities.
+
 The stripe payment gateway will help to make payment for the total value of products in the cart.
