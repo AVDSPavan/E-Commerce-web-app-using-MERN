@@ -16,6 +16,7 @@ This wep application can be accessed via 2 roles.
 ## Roles:
 1. Admin
 2. User
+
 Admin privilage is useful to create products, upload product pictures, Set price for a product, update product and manage product categories.
 
 Password encryption is done using JSON Web Token, crypto and uuid to generate a secure code that will be stored in the MongoDb database and while sign in, the saved encrypted code will be decrypted on the go in the Nodejs backend server and match both user entered and present decrypted passwords for Authentication.
