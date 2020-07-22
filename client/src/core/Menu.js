@@ -11,9 +11,15 @@ const currentTab = (history, path) => {
 };
 
 const Menu = ({ history }) => (
-  <div style={{fontSize:"20px"}}>
-    <ul className="nav nav-tabs bg-dark">
-      <li className="nav-item">
+  <div style={{fontSize:"25px"}}>
+    {/* <nav className="navbar navbar-expand-md fixed-top bg-dark">
+      <div className="container-fluid">
+        <button className="navbar-toggler bg-white" type="button" data-toggle ="collapse" data-target="#mainNav">
+        <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse bg-dark" id="mainNav"> */}
+        <ul className="nav nav-tabs fixed-top bg-dark">
+          <li className="nav-item">
         <Link style={currentTab(history, "/")} className="nav-link" to="/">
           Home
         </Link>
@@ -34,7 +40,7 @@ const Menu = ({ history }) => (
             className="nav-link"
             to="/user/dashboard"
           >
-            U. Dashboard
+            Dashboard
           </Link>
         </li>
       )}
@@ -45,7 +51,7 @@ const Menu = ({ history }) => (
             className="nav-link"
             to="/admin/dashboard"
           >
-            A. Dashboard
+            Dashboard
           </Link>
         </li>
       )}
@@ -86,7 +92,7 @@ const Menu = ({ history }) => (
         </li>
       )}
     </ul>
-  </div>
+          </div>
 );
 
 export default withRouter(Menu);

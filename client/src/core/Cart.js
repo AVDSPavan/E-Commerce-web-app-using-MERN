@@ -16,16 +16,17 @@ const Cart = () => {
 
 	const loadAllProducts = () => {
 		return (
-			<div>
+			<div className="row">
 				{products.map((product, index) => (
-					<Card
-						key={index}
-						product={product}
-						removeFromCart={true}
-						addtoCart={false}
-						setReload={setReload}
-						reload={reload}
-					/>
+					<div className="col-md-4 mb-1" key={index}>
+						<Card
+							product={product}
+							removeFromCart={true}
+							addtoCart={false}
+							setReload={setReload}
+							reload={reload}
+						/>
+					</div>
 				))}
 			</div>
 		);
@@ -33,8 +34,8 @@ const Cart = () => {
 	return (
 		<Base title="Cart Page" description="Ready to checkout">
 			<div className="row text-center">
-				<div className="col-5">{loadAllProducts()}</div>
-				<div className="col-7">
+				<div className="col-8">{loadAllProducts()}</div>
+				<div className="col-4">
 					<StripeCheckout products={products} setReload={setReload} />
 				</div>
 			</div>
