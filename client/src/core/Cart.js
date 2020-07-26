@@ -18,7 +18,7 @@ const Cart = () => {
 		return (
 			<div className="row">
 				{products.map((product, index) => (
-					<div className="col-md-4 mb-1" key={index}>
+					<div className="col-sm-6 mb-1" key={index}>
 						<Card
 							product={product}
 							removeFromCart={true}
