@@ -1,6 +1,6 @@
 # E-Commerce-web-app-using-MERN
 
-It is a E-commerce web application developed using React js, Node js, MongoDb and Express. It is fully functional with different views for admin and user and also integrated with payment gateways for checkout. It is deployed to heroku and you can check it out using the link given below.
+It is a E-commerce web application developed using React js, Node js, MongoDb and Express. It is functional with different views for admin and user and also integrated with payment gateways for checkout. It is deployed to heroku and you can check it out using the link given below.
 
 ## Note :
 
