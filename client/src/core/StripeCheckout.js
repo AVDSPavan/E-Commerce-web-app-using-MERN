@@ -9,7 +9,7 @@ import { createOrder } from "./helper/orderHelper";
 const StripeCheckout = ({
 	products,
 	setReload = (f) => f,
-	reload = undefined,
+	reload = undefined
 }) => {
 	const [data, setData] = useState({
 		loading: false,
@@ -43,14 +43,11 @@ const StripeCheckout = ({
 			body: JSON.stringify(body),
 		})
 			.then((response) => {
-				console.log("hi"+JSON.stringify(response));
 				cartEmpty();
-				if (typeof window !== undefined) {
-					window.location.reload();
-				}
 			})
 			.catch((error) => console.log(error));
 	};
+
 	const showStripeButton = () => {
 		return isAutheticated() ? (
 			<StripeCheckoutButton
