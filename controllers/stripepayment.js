@@ -1,14 +1,14 @@
 const stripe = require("stripe")(
 	"sk_test_51H0drPBPOCxvA3q5Y5Z0AmJsNLRwoTX6Lb40ZXZSts1YzxwcMRYjoSIiZdSPFgHkNTE43iowhA3WB2ylGEM1Kg7Y00UtCfWz91"
 );
+const { result } = require("lodash");
 const uuid = require("uuid/v4");
 
 exports.makepayment = (req, res) => {
 	const { products, token } = req.body;
-	console.log("PRODUCTS", products);
 
 	let amount = 0;
-	products.map((p) => {
+	products && products.map((p) => {
 		amount = amount + p.price;
 	});
 	const idempotencyKey = uuid();
@@ -22,18 +22,13 @@ exports.makepayment = (req, res) => {
 				.create(
 					{
 						amount: amount * 100,
-						currency: "usd",
+						currency: "inr",
 						customer: customer.id,
 						receipt_email: token.email,
 						description: "A test account",
 						shipping: {
-							name: token.card.name,
-							address: {
-								line1: token.card.address_line1,
-								line2: token.card.address_line2,
-								city: token.card.address_city,
-								country: token.card.address_country,
-							},
+							name: token.name,
+							address: token.card.address
 						},
 					},
 					{ idempotencyKey }

@@ -17,7 +17,7 @@ const Cart = () => {
 	const loadAllProducts = () => {
 		return (
 			<div className="row">
-				{products.map((product, index) => (
+				{products && products.map((product, index) => (
 					<div className="col-sm-6 mb-1" key={index}>
 						<Card
 							product={product}

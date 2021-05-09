@@ -23,7 +23,7 @@ const StripeCheckout = ({
 
 	const getFinalAmount = () => {
 		let amount = 0;
-		products.map((p) => {
+		products && products.map((p) => {
 			amount = amount + p.price;
 		});
 		return amount;
@@ -32,7 +32,7 @@ const StripeCheckout = ({
 	const makePayment = (token) => {
 		const body = {
 			token,
-			products,
+			products
 		};
 		const headers = {
 			"Content-Type": "application/json",
@@ -43,8 +43,11 @@ const StripeCheckout = ({
 			body: JSON.stringify(body),
 		})
 			.then((response) => {
-				console.log(response);
-				//call further methods
+				console.log("hi"+JSON.stringify(response));
+				cartEmpty();
+				if (typeof window !== undefined) {
+					window.location.reload();
+				}
 			})
 			.catch((error) => console.log(error));
 	};
@@ -52,7 +55,7 @@ const StripeCheckout = ({
 		return isAutheticated() ? (
 			<StripeCheckoutButton
 				stripeKey="pk_test_51H0drPBPOCxvA3q5O2kYKkCe9u8yYRcbf83l33WwnB3GWSvoCD8U9uETIyafYZ7Mv8SgdMSvGdldXOMcBP1Uh7vR00Q13VXNrA"
-				token={makePayment()}
+				token={(token) => {makePayment(token)}}
 				amount={getFinalAmount() * 100}
 				name="Buy T-shirts"
 				shippingAddress
